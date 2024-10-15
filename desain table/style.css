@@ -1,0 +1,200 @@
+/* Layout */
+.container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+/* Sidebar tetap di kiri */
+aside {
+  flex: 20%;
+  background: #222;
+  padding: 20px;
+  min-height: 100vh;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 57px; /* Mengatur posisi di bawah header */
+  left: 0;
+  height: calc(
+    100vh - 70px
+  ); /* Mengurangi tinggi sidebar dengan tinggi header */
+  z-index: 1000;
+}
+
+/* Header memenuhi lebar dari kiri ke kanan */
+header {
+  background: #280872;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Memastikan header memenuhi seluruh lebar */
+  z-index: 1001; /* Memastikan header berada di atas sidebar dan konten */
+}
+
+/* Konten utama dengan margin agar tidak tertutup sidebar */
+section.main {
+  flex: 80%;
+  background: #fff;
+  padding: 30px;
+  min-height: 530px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  margin: 20px;
+  margin-left: 20%; /* Memberi jarak dengan sidebar */
+  margin-top: 90px; /* Memberi jarak dari header */
+}
+
+/* Mengatur desain footer */
+footer {
+  background: #f1f1f1;
+  color: #555;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #ddd;
+  margin-left: 20%; /* Memberi jarak dengan sidebar */
+  margin-top: 20px;
+}
+
+/* Responsif */
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+  }
+
+  aside {
+    position: static;
+    min-height: auto;
+    width: 100%;
+    box-shadow: none;
+    height: auto;
+    top: 0;
+  }
+
+  section.main,
+  header,
+  footer {
+    margin-left: 0;
+  }
+
+  header {
+    position: relative;
+    width: 100%;
+  }
+}
+
+/* Navigasi */
+.menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.menu li {
+  border-bottom: 1px solid #444;
+  transition: background 0.3s ease;
+}
+
+.menu a {
+  display: block;
+  padding: 15px 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.menu a:hover {
+  background: #444;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/* Tabel */
+/* Mengatur desain judul halaman dengan border di bawah */
+.judul {
+  color: #555;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 15px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Mengatur agar lebar tabel penuh dan antara border tidak memiliki jarak */
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan pada tabel */
+  border-radius: 8px; /* Membuat sudut tabel melengkung */
+  overflow: hidden; /* Menghindari elemen keluar dari border */
+}
+
+/* Menambahkan border dan padding pada sel tabel */
+.table th,
+.table td {
+  border: 1px solid #ddd; /* Border yang lebih halus */
+  padding: 15px; /* Sedikit mengurangi padding untuk kesan rapi */
+  text-align: left; /* Mengatur teks agar rata kiri */
+  font-size: 16px;
+  color: #333;
+}
+
+/* Mengatur background bagian judul tabel */
+.table th {
+  background: #038ade; /* Mengganti warna header tabel */
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase; /* Mengubah teks header menjadi kapital */
+  letter-spacing: 1px; /* Menambahkan spasi antar huruf */
+  border-bottom: 2px solid #0280c3;
+}
+
+/* Menambahkan efek hover pada baris tabel */
+.table tr:hover {
+  background-color: #f1f9ff; /* Warna background saat baris di-hover */
+}
+
+/* Mengatur desain tombol yang dibuat dengan tag <a> */
+.tombol {
+  display: inline-block;
+  max-width: 150px;
+  padding: 10px 25px; /* Mengurangi padding untuk tampilan lebih rapi */
+  color: #fff;
+  text-decoration: none;
+  background: #038ade;
+  border-radius: 5px; /* Membuat sudut tombol melengkung */
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease; /* Efek transisi saat hover */
+}
+
+.tombol:hover {
+  background: #025a9d; /* Efek hover untuk tombol */
+}
+
+/* Desain tombol edit dan hapus agar lebih kecil */
+.tombol.edit,
+.tombol.hapus {
+  padding: 8px 15px; /* Mengurangi padding untuk tombol kecil */
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.tombol.hapus {
+  background: #fc4c4c; /* Warna merah untuk tombol hapus */
+}
+
+.tombol.hapus:hover {
+  background: #d93636; /* Warna lebih gelap saat di-hover */
+}
